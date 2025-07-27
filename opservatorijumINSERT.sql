@@ -141,3 +141,84 @@ INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_id
 INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos) VALUES (6, 6, 6);
 INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos) VALUES (7, 7, 7);
 
+--Dopuna baze:
+INSERT INTO nebeskiobjekat (idnebobj, ime, tip, udalj, mag, ra, dec)
+VALUES (8, 'Proxima Centauri', 'zvezda', 4.24, 11.1, 217.4289, -62.6795);
+
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (8, TO_DATE('2024-08-01', 'YYYY-MM-DD'), TO_DATE('2024-08-02', 'YYYY-MM-DD'), 1, 1, 1); -- Venera, duže posmatranje
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (9, TO_DATE('2024-08-05', 'YYYY-MM-DD'), TO_DATE('2024-08-07', 'YYYY-MM-DD'), 2, 2, 2); -- Halley, duže posmatranje
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (10, TO_DATE('2024-08-10', 'YYYY-MM-DD'), TO_DATE('2024-08-11', 'YYYY-MM-DD'), 3, 3, 4); -- Andromeda
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (11, TO_DATE('2024-08-15', 'YYYY-MM-DD'), TO_DATE('2024-08-16', 'YYYY-MM-DD'), 4, 4, 4); -- Andromeda, drugi opservatorijum
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (12, TO_DATE('2024-08-20', 'YYYY-MM-DD'), TO_DATE('2024-08-22', 'YYYY-MM-DD'), 5, 5, 5); -- Sagittarius A*
+
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (8, 'planeta', 'fotometrija', 4.8, 'ppm', 8, 8);
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (9, 'kometa', 'spektroskopija', 6.5, 'km/s', 9, 9);
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (10, 'galaksija', 'radio talasi', 3.9, 'mag', 10, 10);
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (11, 'galaksija', 'fotometrija', 5.2, 'mag', 11, NULL); -- Bez vremenskih uslova
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (12, 'crna rupa', 'astrometrija', 7.0, 'm/s', 12, 11);
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (13, 'crna rupa', 'spektroskopija', 6.8, 'km/s', 12, NULL); -- Bez vremenskih uslova
+
+INSERT INTO vremenskiuslovi (idusl, dat, temp, vlaz, brzvet, obl, akcija_idakc)
+VALUES (8, TO_DATE('2024-08-01', 'YYYY-MM-DD'), 13.0, 78, 4.5, 25, 8);
+INSERT INTO vremenskiuslovi (idusl, dat, temp, vlaz, brzvet, obl, akcija_idakc)
+VALUES (9, TO_DATE('2024-08-05', 'YYYY-MM-DD'), 11.5, 82, 5.5, 35, 9);
+INSERT INTO vremenskiuslovi (idusl, dat, temp, vlaz, brzvet, obl, akcija_idakc)
+VALUES (10, TO_DATE('2024-08-10', 'YYYY-MM-DD'), 10.0, 80, 6.5, 45, 10);
+INSERT INTO vremenskiuslovi (idusl, dat, temp, vlaz, brzvet, obl, akcija_idakc)
+VALUES (11, TO_DATE('2024-08-20', 'YYYY-MM-DD'), 12.0, 75, 5.0, 30, 12);
+
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (1, 1, 8);
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (2, 2, 9);
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (3, 3, 10);
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (4, 4, 11);
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (5, 5, 12);
+
+INSERT INTO ops_tel (opservatorijum_idops, teleskop_tel_idtel) VALUES (2, 1);
+
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (13, TO_DATE('2024-09-01', 'YYYY-MM-DD'), TO_DATE('2024-09-03', 'YYYY-MM-DD'), 2, 1, 3); -- Betelgeuse, Hubble u Novom Sadu
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (14, TO_DATE('2024-09-05', 'YYYY-MM-DD'), TO_DATE('2024-09-06', 'YYYY-MM-DD'), 1, 1, 6); -- Ceres, Hubble u Beogradu
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (15, TO_DATE('2024-09-10', 'YYYY-MM-DD'), TO_DATE('2024-09-12', 'YYYY-MM-DD'), 3, 3, 4); -- Andromeda, ALMA u Subotici
+INSERT INTO posmatranje (idpos, poc, kraj, ops_tel_opservatorijum_idops, ops_tel_teleskop_tel_idtel, nebeskiobjekat_idnebobj)
+VALUES (16, TO_DATE('2024-09-15', 'YYYY-MM-DD'), TO_DATE('2024-09-16', 'YYYY-MM-DD'), 2, 1, 7); -- Luna, Hubble u Novom Sadu
+
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (14, 'zvezda', 'fotometrija', 5.5, 'mag', 13, 12);
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (15, 'asteroid', 'spektroskopija', 3.8, 'km/s', 14, NULL); -- Bez vremenskih uslova
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (16, 'galaksija', 'radio talasi', 4.2, 'mag', 15, 13);
+INSERT INTO akcija (idakc, naz, teh, rez, mer, posmatranje_idpos, vremenskiuslovi_idusl)
+VALUES (17, 'mesec', 'astrometrija', 2.9, 'm/s', 16, NULL); -- Bez vremenskih uslova
+
+INSERT INTO vremenskiuslovi (idusl, dat, temp, vlaz, brzvet, obl, akcija_idakc)
+VALUES (12, TO_DATE('2024-09-01', 'YYYY-MM-DD'), 14.5, 70, 4.0, 20, 14);
+INSERT INTO vremenskiuslovi (idusl, dat, temp, vlaz, brzvet, obl, akcija_idakc)
+VALUES (13, TO_DATE('2024-09-10', 'YYYY-MM-DD'), 12.5, 75, 5.0, 30, 16);
+
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (2, 2, 13);
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (1, 1, 14);
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (3, 3, 15);
+INSERT INTO r_ops_ast_pos (ops_ast_idops, ops_ast_astronom_idast, posmatranje_idpos)
+VALUES (2, 2, 16);
